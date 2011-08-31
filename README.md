@@ -47,4 +47,4 @@ RJ Zaworski <rj@rjzaworski.com>
 
 License
 -------
-geous.js is released under the JSON License. You can read the license [here](http://www.json.org/license.html).
+Baffin CSS is released under the JSON License. You can read the license [here](http://www.json.org/license.html).
