@@ -1,0 +1,71 @@
+/**
+ *	SASSy grid template
+ *
+ *	Huge props to Inuit's Grid system:
+ *	https://github.com/csswizardry/inuit.css/blob/master/css/grid.inuit.css
+ *
+ *	@author    RJ Zaworski <rj@rjzaworski.com>
+ *	@license   JSON
+ */
+/**-----------------------------------------------------------**/
+/**	
+ *	$cols - the number of columns in the grid (e.g. 4, 6, 8 12, 16)
+ *	$gutter - the gutter as a percentage of the grid (e.g. 2%)
+ */
+@mixin baffin-grid( $cols, $gutter ) {
+
+	/**
+	 *	Define a layout region
+	 */
+	.layout {
+		margin:0 0 0 (-$gutter);
+		padding:0;
+		width:100% + $gutter;
+	}
+
+	.layout [class*="grid-"] {
+		float:left;
+		list-style:none;
+		margin:0 0 0 $gutter;
+	}
+
+	@for $i from 1 through $cols - 1 {
+		.grid-#{$i} { width: 100% * $i / $cols - $gutter; }
+	}
+
+
+	/**
+	 *	Define grids spanning some number of columns. E.g.,
+	 *	.grid-6 would cover half of a twelve column layout.
+	 */
+	.grid-#{$cols} {
+		margin:0;
+		width: 100%;
+	}
+
+	.clearing {
+		clear:left;
+	}
+
+	@media (max-width:480px){
+
+		/** Collapse columns to fit on small screens */
+		.layout {
+			float:none;
+			margin:0;
+			width:100%;
+
+			[class*="grid-"] {
+				float:none;
+				margin:0;
+				overflow:hidden;
+				width:100%;
+			}
+		}
+
+		[class*="grid-"] {
+			width:100%;
+		}
+	}
+}
+

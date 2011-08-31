@@ -1,0 +1,127 @@
+/**
+ *	SASSy typography template
+ *
+ *	@author    RJ Zaworski <rj@rjzaworski.com>
+ *	@license   JSON
+ */
+@mixin baffin-typography {
+	
+	h1,	h2,	h3,	h4,	h5 {
+		font-weight:bold;
+		line-height:1.3em;
+		margin:1.625em 0 0.325em;
+	}
+	
+	h1 { font-size:2em; }
+	h2 { font-size:1.65em; }
+	h3 { font-size:1.4em; } 
+	h4 { font-size:1.2em; }
+	h5 { font-size:1em; }
+	h6 { font-size:0.8em; }
+	
+	p,
+	dl,
+	ul, 
+	ol { margin-bottom:0.8em; }
+	
+	blockquote {
+		font-size:0.9em;
+		font-style:italic;
+		margin: 1.3em 0;
+		padding:0 2em;
+	}
+
+	ul, ol {
+		padding-left:2em;
+	}
+
+	ol { list-style:decimal; }
+	ul { list-style:square; }
+
+	dt, strong {
+		font-weight:bold;
+	}
+	dd {
+		font-style:italic;
+	}
+
+	code, pre {
+		font-family:"lucida console","courier new", monotype;
+		font-size:0.9em;
+		line-height:1.2em;
+		overflow:auto;
+	}
+
+	pre {
+		margin:2em 0;
+	}
+
+	cite {
+		font-style:italic;
+		padding-left:20%;
+		
+		&:before { content:"\2014\a0"; }
+	}
+
+	em { font-style:italic; }
+	
+	a {
+		&:link,
+		&:visited {
+			color:#1982D1;
+			text-decoration:none;
+		}
+		
+		&:hover,
+		&:focus {
+			text-decoration:underline;
+		}
+	}
+
+	.amp {
+		font-style:italic;
+		font-family:"Goudy Old Style", "Caslon","Baskerville", georgia, serif;
+	}
+
+	.hidden-text,
+	.printer-text {
+		display:none;
+	}
+
+	.assistive-text { 
+		/**	screen readers, but hidden from view.  
+		 *	caveat: nav elements (links, inputs) hidden as .assistive text may
+		 *	still be reached by tabbing. ye be warned.
+		 *
+		 *	@cite http://snook.ca/archives/html_and_css/hiding-content-for-accessibility 
+		 */
+		position: absolute !important;
+		height: 1px; width: 1px; 
+		overflow: hidden;
+		clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+		clip: rect(1px, 1px, 1px, 1px);
+	}
+
+	.mobile-item { 
+		/** Hidden; media-query reset will display **/
+		display:none;
+	}
+
+	.text-center { text-align:center; }
+	.text-left { text-align:left; }
+	.text-right { text-align:right; }
+
+	.caps {	text-transform:uppercase; }
+
+	.smaller { 
+		font-size: 0.8em;
+		line-height: 1.6em;
+	}
+
+	@media (max-width: 720px){
+		/** Show mobile items **/
+		.mobile-item {
+			display:block;
+		}
+	}
+}
